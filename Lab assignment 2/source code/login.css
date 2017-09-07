@@ -1,0 +1,33 @@
+body{
+    background: url('http://www.guoguiyan.com/data/out/151/68885581-plain-wallpapers.jpg') no-repeat;
+    background-size: 100%;
+    color: blue;
+}
+
+div.well{
+    height: 250px;
+}
+
+.Absolute-Center {
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.Absolute-Center.is-Responsive {
+    width: 50%;
+    height: 50%;
+    min-width: 200px;
+    max-width: 400px;
+    padding: 40px;
+
+
+}
+
+#logo-container{
+    margin: auto;
+    margin-bottom: 10px;
+    width:200px;
+    height:80px;
+    background-image:url('https://placeholdit.imgix.net/~text?txtsize=50&bg=ff051&txtclr=ff0000&txt=HELLO+WELCOME&w=750&h=80');
+}

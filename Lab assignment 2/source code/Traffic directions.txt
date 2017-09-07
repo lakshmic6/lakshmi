@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="" data-ng-app="GoogleDirection">
+<head>
+    <meta t="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Map pgm </title>
+    <link href="./files/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js" type="application/javascript"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA0SyFeDdegBsPO7A2uS9byAPlHf-9CaaY&sensor=false&amp;libraries=places"></script>
+
+    <style>
+        #map-canvas {
+            width: 650px;
+            height: 450px;
+        }
+        .weatherModule {
+            background:#cbf4d6;
+            height:200px;
+            width:320px;
+            border: 1px dashed #ccc;
+            padding: 1em;
+        }
+        .currentConditions {
+            float: left;
+        }
+        .weatherModule {
+            padding: 1em;
+        }
+        .currentIcon {
+            float: left;
+            margin: 0 .75em;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<div class="wrapp" ng-controller="googlemapoutput">
+    <form class="wrapp">
+        <br><br>
+        <center>
+            <input type="text" placeholder="Start locn. (State / Place)" ng-model="startlocation" id="startlocation" autocomplete="on"/>
+            <br><br>
+            <input type="text" placeholder="End locn. (State / Place)" ng-model="endlocation" id="endlocation" autocomplete="on"/>
+            <br><br>
+            <button id="btn" class = "btn-info" ng-click="calcRoute()">
+                Get TRAFFIC Direction
+            </button>
+            <br/></br>
+        </center>
+    </form>
+    <div class="weatherModule">
+        <center><label><h3>TRAFFIC DIRECTION</h3></label></center>
+        <p class="currentConditions" ng-bind-html="currentweather" ></p>
+        <br>
+        <div class="currentIcon" ng-bind-html="currentIcon"></div>
+        <button id="btnweather" ng-click="getWeather()">
+            Start Location 
+        </button>
+        <br>
+        <button id="btnweather" ng-click="getWeather2()">
+            End Location 
+        </button >
+    </div>
+    <br><br>
+    <div id="map-canvas" style="height: 400px;"></div>
+</div>
+
+</body>
+</html>
+
+<script>
+    angular.module('GoogleDirection', [])
+        .controller('googlemapoutput', function ($scope,$http,$sce) {
+            var map;
+            var mapOptions;
+            var directionsDisplay = new google.maps.DirectionsRenderer({
+                draggable: true
+            });
+
+            var directionsService = new google.maps.DirectionsService();
+
+            $scope.initialize = function () {
+                var pos = new google.maps.LatLng(0, 0);
+                var mapOptions = {
+                    zoom: 3,
+                    center: pos
+                };
+                map = new google.maps.Map(document.getElementById('map-canvas'),
+                    mapOptions);
+
+                new google.maps.places.Autocomplete(
+                    (document.getElementById('startlocation')), {
+                        types: ['geocode']
+                    });
+
+                new google.maps.places.Autocomplete(
+                    (document.getElementById('endlocation')), {
+                        types: ['geocode']
+                    });
+
+            };
+            $scope.calcRoute = function () {
+                var end = document.getElementById('endlocation').value;
+                var start = document.getElementById('startlocation').value;
+                var request = {
+                    origin: start,
+                    destination: end,
+                    travelMode: google.maps.TravelMode.DRIVING
+                };
+                directionsService.route(request, function (response, status) {
+                    if (status == google.maps.DirectionsStatus.OK) {
+                        directionsDisplay.setMap(map);
+                        directionsDisplay.setDirections(response);
+                        console.log(status);
+                    }
+                });
+            };
+
+            $scope.getWeather = function() {
+                var start = document.getElementById("startlocation").value.toString();
+                $http.get('http://api.wunderground.com/api/36b799dc821d5836/conditions/q/'+start+'.json').success(function(sourcedata){
+                    console.log(sourcedata);
+                    sourcetemp = sourcedata.current_observation.temp_f;
+                    sourceicon = sourcedata.current_observation.icon_url;
+                    sourceweather = sourcedata.current_observation.weather;
+                    console.log(sourcetemp);
+                    $scope.currentweather= $sce.trustAsHtml("<p><b>At "+start+"</b><br>Currently "+sourcetemp+ "&deg; F and "+ sourceweather+"</p>");
+                    $scope.currentIcon=$sce.trustAsHtml("<img src='" + sourceicon  +"'/><br>");
+                })
+            };
+            $scope.getWeather2 = function() {
+
+                var end = document.getElementById("endlocation").value.toString();
+
+                $http.get(   'http://api.wunderground.com/api/36b799dc821d5836/conditions/q/'+end+'.json').success(function(destinationdata){
+                    console.log(destinationdata);
+                    temp2 = destinationdata.current_observation.temp_f;
+                    icon2 = destinationdata.current_observation.icon_url;
+                    weather2 = destinationdata.current_observation.weather;
+                    console.log(temp2);
+                    $scope.currentweather = $sce.trustAsHtml("<p><b>At "+ end +"</b><br>Currently " +temp2 +" &deg; F and " + weather2 + "</p>")
+                    $scope.currentIcon= $sce.trustAsHtml("<img src='" + icon2  +"'/>")
+                });
+            };
+
+            google.maps.event.addDomListener(window, 'load', $scope.initialize);
+        });
+</script>
+</body>
+</html>

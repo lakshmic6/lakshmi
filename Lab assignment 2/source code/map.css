@@ -1,0 +1,24 @@
+.angular-google-map-container {
+    height: 350px;
+    width : 1000px;
+    margin-bottom: 15px;
+}
+
+.panel-primary {
+    padding: 15px;
+}
+
+.control-label{
+    text-align: left !important;
+}
+#leftDiv{
+    padding-right: 5px;
+    display:table-cell;
+    text-align:right;
+}
+
+#rightDiv{
+    padding-left: 0px;
+    text-align:left;
+    display:table-cell;
+}

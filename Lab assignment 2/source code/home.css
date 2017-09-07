@@ -1,0 +1,11 @@
+body {
+    background: url('http://a1.images.thrillophilia.com/image/upload/s--xqMQ7twE--/c_fill,f_auto,fl_strip_profile,h_800,q_jpegmini,w_1300/v1/images/photos/000/050/355/original/1.jpg.jpg?1458198151');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    color : BLUE
+}
+h1
+{
+    background:url('https://placeholdit.imgix.net/~text?txtsize=25&bg=ff051&txtclr=ff0000&txt=HELLO+WELCOME&w=650&h=80');
+}

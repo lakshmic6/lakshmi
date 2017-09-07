@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="neo">
+
+<head>
+    <meta charset="utf-8" />
+    <title>AngularJS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script>
+        document.write('<base href="' + document.location + '" />');
+    </script>
+    <link rel="stylesheet" href="map.css" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZ-8duNNT0WCTwYenCDlEfSVQNv4yt0PA&libraries=places"></script>
+    <script data-require="angular.js@1.2.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js" data-semver="1.2.17"></script>
+    <script data-require="lodash-underscore@*" data-semver="2.4.1" src="https://rawgit.com/lodash/lodash/2.4.1/dist/lodash.underscore.min.js"></script>
+    <script data-require="angular-google-maps@*" data-semver="1.1.4" src="https://rawgit.com/nlaplante/angular-google-maps/1.1.4/dist/angular-google-maps.min.js"></script>
+    <script src="map.js"></script>
+</head>
+
+<body ng-controller="MainCtrl">
+<div class="wrapp">
+    <br>
+    <div>
+        <div id="left">
+                    <input type="text" id="origin"  style="width:40%" ng-model="directions.origin" googleplace />
+                </div>
+        <br>
+            <div id="right">
+                <input type="text" id="destination"  style="width:40%" ng-model="directions.destination" googleplace/>
+            </div>
+        <br>
+                    <button class="btn btn-success" ng-click="getDirections()">Get Directions</button>
+                </div>
+    <br>
+    <google-map control="map.control" center="map.center" zoom="map.zoom">
+        <marker coords="marker.center"></marker>
+    </google-map>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+
+</html>

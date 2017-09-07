@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link rel="stylesheet" href="home.css">
+    <script>
+        function register()
+        {
+            window.location.href="register.html";
+        }
+        function login()
+        {
+            if(document.getElementById("username").value.length>0 && document.getElementById("password").value.length>0)
+            {
+                if(document.getElementById("username").value==localStorage.getItem("UserName")
+                    && document.getElementById("password").value==localStorage.getItem("Password"))
+                {
+                    window.location.href="login.html";
+                }
+                else
+                {
+                    alert("Please enter correct value!");
+                }
+            }
+            else
+            {
+                alert("Dear user, you have missed entering few details");
+            }
+        }
+    </script>
+
+</head>
+<body>
+<center>
+    <br>
+    <br>
+    <br>
+
+<img src="https://placeholdit.imgix.net/~text?txtsize=25&bg=ff051&txtclr=ff0000&txt=HELLO+WELCOME&w=650&h=80">
+    <br>
+    <br>
+    <a href="login.html"><img src="https://placeholdit.imgix.net/~text?txtsize=24&bg=808000&txtclr=0000ff&txt=Login&w=120&h=55"></a>
+    <br>
+    <br>
+    <a href="register.html"><img src="https://placeholdit.imgix.net/~text?txtsize=24&bg=ff00ff&txtclr=000080&txt=Signup&w=120&h=55"></a>
+</center>
+</body>
+</html>
