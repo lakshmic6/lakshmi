@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/readable/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="LoginPage.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="faceBookLogin.js"></script>
+    <script src="gmailLogin.js"></script>
+    <title>Login Page</title>
+</head>
+<body>
+<div class="row">
+    <div class="col-md-12">
+        <span id="loginHeading">Login Via</span>
+        <div class="social-buttons">
+            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" size="xlarge" font-size='20px'>
+            </fb:login-button>
+
+            <a href="#" class="btn btn-tw" onclick="login()"><i class="fa fa-google"></i> mail</a>
+        </div>
+        or
+        <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+            <div class="form-group">
+                <label class="sr-only" for="exampleInputEmail2">Username</label>
+                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required="">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="exampleInputPassword2">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required="">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block" onclick="window.location.href='Welcome.html'">Sign in</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="status" style="display:none"></div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Register</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<script>
+
+    function registration()
+    {
+        if(document.getElementById('fn').value.length>0 && document.getElementById('ln').value.length>0 && document.getElementById('username').value.length>0 && document.getElementById('email').value.length>0 && document.getElementById('password').value.length>0 && document.getElementById('cpassword').value.length>0 &&
+            ( document.getElementById('cpassword').value ==document.getElementById('password').value))
+        {
+            localStorage.setItem('UserName',(document.getElementById('firstName').value));
+            localStorage.setItem('Password',(document.getElementById('password12').value));
+            window.location.href='LoginPage.html';
+        }
+        else
+        {
+            alert('Dear user, you have missed entering few details !');
+        }
+    }
+</script>
+<body style="background-size:80%; background-image:url(http://www.kingjames1academy.com/images/backgrounds/background-art.jpg)">
+<center>
+    <div class="page_header"><br><br>
+
+        <h1> REGISTRATION! </h1>
+    </div>
+                       <form>
+                           <div>
+                              <div id="leftDiv">
+                                <input type="text"  name="firstName" placeholder="First name" value=""/>
+                            </div>
+                            <div id="rightDiv">
+                                <input type="text" name="lastName" placeholder="Last name" value=""/>
+                            </div>
+                           </div>
+                           <div>
+                        <input type="email" name="email_id" placeholder="Mobile Number or Email" size=47>
+                           </div>
+                           <div>
+                        <input type="password" name="password12" placeholder="Create password" size=47>
+                           </div>
+                           <div>
+                               <input type="password" name="password11" placeholder="Confirm your password" size=47>
+                           </div>
+                           </div>
+
+                               <div>
+                               <input type="text"  placeholder="Mobile phone" size="47">
+                           </div>
+                           <div>
+                               Birthday : <input type="date" name="bday" style="width:20%">
+                           </div>
+                           <div>
+                           Gender : <select name="gender" style="width:20%">
+                           <option selected disabled>Gender</option>
+                           <option>Female</option>
+                           <option>Male</option>
+                           <option>Other</option>
+                       </select>
+</div>
+                           <div>
+                              Location : <select name="country" style="width:20%">
+                        <option selected disabled>Choose here </option>
+                        <option>Austria</option>
+                        <option>Algeria</option>
+                        <option>Australia</option>
+                        <option>Bangladesh</option>
+                        <option>Belgium</option>
+                        <option>Bhutan</option>
+                        <option>Brazil</option>
+                        <option>Bulgaria</option>
+                        <option>Canada</option>
+                        <option>Chile</option>
+                        <option>Columbia</option>
+                        <option>CostaRica</option>
+                        <option>Cuba</option>
+                        <option>Denmark</option>
+                        <option>Dominican Republic</option>
+                        <option>Egypt</option>
+                        <option>Ethiopia</option>
+                        <option>Fiji</option>
+                        <option>Finland</option>
+                        <option>France</option>
+                        <option>Georgia</option>
+                        <option>Germany</option>
+                        <option>Ghana</option>
+                        <option>Greece</option>
+                        <option>Hong Kong</option>
+                        <option>Hungary</option>
+                        <option>India</option>
+                        <option>Indonesia</option>
+                        <option>Iran</option>
+                        <option>Iraq</option>
+                        <option>Ireland</option>
+                        <option>Israel</option>
+                        <option>Italy</option>
+                        <option>Japan</option>
+                        <option>Kenya</option>
+                        <option>Korea</option>
+                        <option>Kuwait</option>
+                        <option>Libya</option>
+                        <option>Macao</option>
+                        <option>Malaysia</option>
+                        <option>Maldives</option>
+                        <option>Mexico</option>
+                        <option>Morocco</option>
+                        <option>Nepal</option>
+                        <option>Netherlands</option>
+                        <option>Nigeria</option>
+                        <option>Norway</option>
+                        <option>Oman</option>
+                        <option>Pakistan</option>
+                        <option>Poland</option>
+                        <option>Portugal</option>
+                        <option>Qatar</option>
+                        <option>Russia</option>
+                        <option>Saudi Arabia</option>
+                        <option>South Africa</option>
+                        <option>Sri Lanka</option>
+                        <option>Spain</option>
+                        <option>Switzerland</option>
+                        <option>Taiwan</option>
+                        <option>Thailand</option>
+                        <option>Turkey</option>
+                        <option>Uganda</option>
+                        <option>United Arab Emirates</option>
+                        <option>United Kingdom</option>
+                        <option>United States of America</option>
+                        <option>Vietnam</option>
+                        <option>Yemen</option>
+                        <option>Zembabwe</option>
+                           </select>
+                           </div>
+                        <input type="button" value="Register" onclick="location.href='regsuccess.html';" >
+                           <input type="reset" value="Reset">
+                           <input type="button" value="Login Now" onclick="location.href='login.html';">
+                    </form>
+</center>
+</body>
