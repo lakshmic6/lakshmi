@@ -1,0 +1,32 @@
+.row{
+    margin-left:25%;
+    margin-right:0px;
+    width:50%;
+    margin-top:10%;
+    padding:1%;
+    border-radius:10px;
+    border:1px solid black;
+    background:white;
+}
+.btn-fb {
+    color: #fff;
+    background-color: #3b5998;
+}
+.btn-tw {
+    color: #fff;
+    background: #c32f10;
+    margin-top:-31px;
+    font-weight:bold;
+}
+span#loginHeading {
+    font-size: 20px;
+    font-family: Microsoft sans-serif;
+}
+body{
+    background: url('background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.social-buttons {
+    margin-top: 20px;
+}

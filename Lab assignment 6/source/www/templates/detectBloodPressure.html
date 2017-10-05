@@ -1,0 +1,40 @@
+<style>
+  .pane {
+    background: url("../img/8yWFeLCmR9mGqc5Hpjpi_water-wallpaper-and-water-background-1.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+  }
+</style>
+<style>
+  .reg{
+    background-image: url("../img/8yWFeLCmR9mGqc5Hpjpi_water-wallpaper-and-water-background-1.jpg");
+  }
+</style>
+
+
+<ion-view title="Detect Blood Pressure" id="page4" class="pane">
+    <ion-content padding="true" class="has-header" style="align-content: center">
+        <form id="detectBloodPressure-form7" class="list">
+            <label class="item item-input" id="detectBloodPressure-input13">
+                <span class="input-label">Systolic Blood Pressure :</span>
+                <!--<input type="text" placeholder="">-->
+            </label>
+            <div class="spacer" style="width: 300px; height: 9px;"></div>
+            <label class="item item-input" id="detectBloodPressure-input14" ng-model="diaParameterF">
+                <input type="number" placeholder="">
+            </label>
+            <div class="spacer" style="width: 300px; height: 34px;"></div>
+            <label class="item item-input" id="detectBloodPressure-input15">
+                <span class="input-label">Diastolic Blood Pressure :</span>
+                <!--<input type="text" placeholder="">-->
+            </label>
+            <div class="spacer" style="width: 300px; height: 7px;"></div>
+            <label class="item item-input" id="detectBloodPressure-input16" ng-model="diaParameter2H">
+                <input type="number" placeholder="">
+            </label>
+        </form>
+        <button id="detectBloodPressure-button6" style="border-radius:30px 30px 30px 30px;" class="button button-assertive  button-block" ng-click="diaDetectView(diaDetectLogic(diaParameterF,diaParameter2H))"> Detect </button>
+        <div class="spacer" style="width: 300px; height: 78px;"></div>
+        <button id="detectBloodPressure-button7" style="border-radius:30px 30px 30px 30px;" class="button button-dark  button-block">Suggestion</button>
+    </ion-content>
+</ion-view>
